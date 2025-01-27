@@ -61,11 +61,11 @@ const Calendar = () => {
     <div className=" mx-auto p-4">
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <button className="flex items-center gap-2 bg-rose-500 text-white px-4 py-2 rounded-lg shadow hover:bg-rose-600">
+          <button className="flex items-center gap-2 bg-rose-900 text-white p-2 rounded-md shadow ">
             <Grid className="w-4 h-4" />
             Calendar
           </button>
-          <button className="flex items-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg shadow hover:bg-gray-200">
+          <button className="flex items-center gap-2 bg-gray-100 text-gray-700 px-4 py-2 rounded-lg shadow ">
             <List className="w-4 h-4" />
             List
           </button>
@@ -96,7 +96,7 @@ const Calendar = () => {
         </button>
       </div>
 
-      <div className="grid grid-cols-7 shadow-2xl rounded-md gap-px">
+      <div className="grid grid-cols-7 shadow-lg rounded-md gap-px">
         {weekDays.map(day => (
           <div key={day} className="p-2  text-sm font-medium text-gray-600 border-t-2 ">
             {day}

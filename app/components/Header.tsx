@@ -5,22 +5,16 @@ const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
-    <div className="w-full  px-8 py-4 flex items-center justify-between">
-      {/* Left side - Title */}
+    <div className="w-full  px-4 py-4 flex items-center justify-between">
       <div>
         <h1 className=" font-semibold text-gray-800">Good Afternoon, Andrew!</h1>
         <small>Here Are A Few Things To Get You Started</small>
       </div>
-
-      {/* Right side - notification and profile */}
       <div className="flex items-center space-x-6">
-        {/* Notification Bell */}
         <div className="relative cursor-pointer">
           <BellOutlined className="text-xl text-gray-600" />
           <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
         </div>
-
-        {/* Profile Section */}
         <div className="relative">
           <div
             className="flex items-center space-x-3 cursor-pointer"
@@ -34,8 +28,6 @@ const Header = () => {
               <span className="text-xs text-gray-500">Administrator</span>
             </div>
           </div>
-
-          {/* Simple Dropdown Menu */}
           {showDropdown && (
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
               <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
