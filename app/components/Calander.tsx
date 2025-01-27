@@ -5,27 +5,27 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  
-  const getDaysInMonth = (date : any) => {
+
+  const getDaysInMonth = (date: any) => {
     const year = date.getFullYear();
     const month = date.getMonth();
     return new Date(year, month + 1, 0).getDate();
   };
 
-  const getFirstDayOfMonth = (date : any) => {
+  const getFirstDayOfMonth = (date: any) => {
     const year = date.getFullYear();
     const month = date.getMonth();
     return new Date(year, month, 1).getDay();
   };
 
-  const formatDate = (date : any ) => {
+  const formatDate = (date: any) => {
     return new Intl.DateTimeFormat('en-US', {
       year: 'numeric',
-      month: 'long'
+      month: 'long',
     }).format(date);
   };
 
-  const navigateMonth = (direction : any) => {
+  const navigateMonth = (direction: any) => {
     const newDate = new Date(currentDate);
     newDate.setMonth(currentDate.getMonth() + direction);
     setCurrentDate(newDate);
@@ -45,7 +45,9 @@ const Calendar = () => {
     for (let day = 1; day <= daysInMonth; day++) {
       days.push(
         <div key={day} className="h-24 border border-gray-200 p-2">
-          <span className={`inline-block ${day === new Date().getDate() ? 'bg-blue-500 text-white rounded-full w-6 h-6 text-center' : ''}`}>
+          <span
+            className={`inline-block ${day === new Date().getDate() ? 'bg-blue-500 text-white rounded-full w-6 h-6 text-center' : ''}`}
+          >
             {day}
           </span>
         </div>
@@ -61,17 +63,11 @@ const Calendar = () => {
     <div className=" mx-auto p-4">
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <button 
-            onClick={() => navigateMonth(-1)}
-            className="p-2 hover:bg-gray-100 rounded-full"
-          >
+          <button onClick={() => navigateMonth(-1)} className="p-2 hover:bg-gray-100 rounded-full">
             <ChevronLeft className="w-5 h-5" />
           </button>
           <h2 className="text-xl font-semibold">{formatDate(currentDate)}</h2>
-          <button 
-            onClick={() => navigateMonth(1)}
-            className="p-2 hover:bg-gray-100 rounded-full"
-          >
+          <button onClick={() => navigateMonth(1)} className="p-2 hover:bg-gray-100 rounded-full">
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
@@ -81,7 +77,7 @@ const Calendar = () => {
           </button>
         </div>
       </div>
-      
+
       <div className="grid grid-cols-7 gap-px">
         {weekDays.map(day => (
           <div key={day} className="p-2 text-center text-sm font-medium text-gray-600">

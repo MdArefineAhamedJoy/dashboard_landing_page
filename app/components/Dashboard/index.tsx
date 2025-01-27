@@ -1,100 +1,3 @@
-// import {
-//   CalendarOutlined,
-//   HomeOutlined,
-//   MailOutlined,
-//   TeamOutlined,
-//   UserOutlined,
-//   UserSwitchOutlined,
-// } from "@ant-design/icons";
-// import { useState } from "react";
-// import Calendar from "../Calander";
-// import NavigationMenu from "../NavigationMenu";
-// import Chart from "../Chart";
-
-// const SideNav = () => {
-//   const [isHovered, setIsHovered] = useState(false);
-
-//   const menuItems = [
-//     { icon: <HomeOutlined className="text-xl" />, label: "Home" },
-//     { icon: <CalendarOutlined className="text-xl" />, label: "Listings" },
-//     { icon: <UserOutlined className="text-xl" />, label: "Operations" },
-//     { icon: <MailOutlined className="text-xl" />, label: "Back Office" },
-//     { icon: <TeamOutlined className="text-xl" />, label: "Admin" },
-//     { icon: <UserSwitchOutlined className="text-xl" />, label: "Super Admin" },
-//   ];
-
-//   return (
-//     <div className="min-h-screen flex">
-//       {/* Sidebar */}
-//       <div
-//         onMouseEnter={() => setIsHovered(true)}
-//         onMouseLeave={() => setIsHovered(false)}
-//         className={`fixed left-0 h-screen text-black   bg-white
-//           z-[999999]
-//           transition-all duration-300 ease-in-out
-//           ${isHovered ? "w-52" : "w-16"}`}
-//       >
-//         {/* Logo */}
-//         <div className="h-16 flex items-center justify-center">
-//           <span className="text-xl font-bold">CH</span>
-//         </div>
-
-//         {/* Nav Items */}
-//         <nav className="mt-6">
-//           {menuItems.map((item, index) => (
-//             <div
-//               key={index}
-//               className={`
-//                 flex items-center mt-5 px-4 py-3 cursor-pointer
-//                 transition-all duration-300 ease-in-out
-//                 hover:bg-gray-700 group
-//                 ${isHovered ? "justify-start space-x-4" : "justify-center"}
-//               `}
-//             >
-//               <div
-//                 className={`
-//                 flex-shrink-0
-//                 transition-transform duration-300
-//                 group-hover:scale-110
-//               `}
-//               >
-//                 {item.icon}
-//               </div>
-//               <span
-//                 className={`
-//                   whitespace-nowrap
-//                   transition-all duration-300
-//                   ${isHovered ? "opacity-100 ml-3" : "opacity-0 w-0"}
-//                 `}
-//               >
-//                 {item.label}
-//               </span>
-//             </div>
-//           ))}
-//         </nav>
-//       </div>
-
-//       {/* Main Content  ai class diyee ami hober korle main contant oo poriborton korchi*/}
-//       <div
-//         className={`
-//           flex-1 pl-16 bg-gray-100
-//         `}
-//       >
-//         <div className="p-8">
-//           <h1 className="text-2xl font-bold text-gray-800">
-//             Welcome to Dashboard
-//           </h1>
-//           <NavigationMenu/>
-//           <Calendar/>
-//           <Chart/>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SideNav;
-
 import {
   CalendarOutlined,
   CaretDownOutlined,
@@ -222,6 +125,18 @@ const SideNav = () => {
                   </span>
                 )}
               </div>
+              {item.submenu && isHovered && expandedMenus.has(item.key) && (
+                <div className="bg-gray-50 py-2">
+                  {item.submenu.map((subItem) => (
+                    <div
+                      key={subItem.key}
+                      className="px-12 py-2 text-sm text-gray-600 hover:text-rose-500 cursor-pointer"
+                    >
+                      {subItem.label}
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </nav>

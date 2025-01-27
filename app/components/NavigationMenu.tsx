@@ -1,15 +1,46 @@
 import React from 'react';
-import { HomeOutlined, ClearOutlined, ToolOutlined, FileTextOutlined, BankOutlined, TagOutlined } from '@ant-design/icons';
+import {
+  HomeOutlined,
+  ClearOutlined,
+  ToolOutlined,
+  FileTextOutlined,
+  BankOutlined,
+  TagOutlined,
+} from '@ant-design/icons';
 import { Card } from 'antd';
 
 const NavigationMenu = () => {
   const menuItems = [
-    { icon: <HomeOutlined style={{ fontSize: '1.5em' }} />, title: 'Stays', color: 'rgb(171, 54, 87)' },
-    { icon: <ClearOutlined style={{ fontSize: '1.5em' }} />, title: 'Cleanings', color: 'rgb(171, 54, 87)' },
-    { icon: <ToolOutlined style={{ fontSize: '1.5em' }} />, title: 'Fixes', color: 'rgb(171, 54, 87)' },
-    { icon: <FileTextOutlined style={{ fontSize: '1.5em' }} />, title: 'Materials', color: 'rgb(171, 54, 87)' },
-    { icon: <BankOutlined style={{ fontSize: '1.5em' }} />, title: 'Back Office', color: 'rgb(171, 54, 87)' },
-    { icon: <TagOutlined style={{ fontSize: '1.5em' }} />, title: 'Tickets', color: 'rgb(171, 54, 87)' },
+    {
+      icon: <HomeOutlined style={{ fontSize: '1.5em' }} />,
+      title: 'Stays',
+      color: 'rgb(171, 54, 87)',
+    },
+    {
+      icon: <ClearOutlined style={{ fontSize: '1.5em' }} />,
+      title: 'Cleanings',
+      color: 'rgb(171, 54, 87)',
+    },
+    {
+      icon: <ToolOutlined style={{ fontSize: '1.5em' }} />,
+      title: 'Fixes',
+      color: 'rgb(171, 54, 87)',
+    },
+    {
+      icon: <FileTextOutlined style={{ fontSize: '1.5em' }} />,
+      title: 'Materials',
+      color: 'rgb(171, 54, 87)',
+    },
+    {
+      icon: <BankOutlined style={{ fontSize: '1.5em' }} />,
+      title: 'Back Office',
+      color: 'rgb(171, 54, 87)',
+    },
+    {
+      icon: <TagOutlined style={{ fontSize: '1.5em' }} />,
+      title: 'Tickets',
+      color: 'rgb(171, 54, 87)',
+    },
   ];
 
   return (

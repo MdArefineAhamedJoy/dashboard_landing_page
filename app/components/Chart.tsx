@@ -1,6 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
 
 const data = [
   { date: 'Dec 2016', sales: 25000 },
@@ -30,8 +38,7 @@ const MetricCard = ({ title, value }: { title: string; value: string }) => (
 
 const Chart = () => {
   return (
-    <div className="p-6 max-w-7xl mx-auto bg-white">
-      {/* Metrics Grid */}
+    <div className="p-6 w-full mx-auto bg-white">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
         <MetricCard title="Earnings" value="257" />
         <MetricCard title="Costs" value="257" />
@@ -40,8 +47,6 @@ const Chart = () => {
         <MetricCard title="Rating" value="257" />
         <MetricCard title="Potential Earnings" value="257" />
       </div>
-
-      {/* Time Period Selector */}
       <div className="flex justify-end mb-6">
         <select className="border border-gray-300 rounded px-3 py-1.5 text-sm text-gray-600">
           <option>Monthly</option>
@@ -49,21 +54,12 @@ const Chart = () => {
           <option>Yearly</option>
         </select>
       </div>
-
-      {/* Chart */}
       <div className="h-[400px] w-full">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart 
-            data={data} 
-            margin={{ top: 10, right: 30, left: 10, bottom: 30 }}
-          >
-            <CartesianGrid 
-              strokeDasharray="3 3" 
-              vertical={false}
-              stroke="#E5E7EB"
-            />
-            <XAxis 
-              dataKey="date" 
+          <LineChart data={data} margin={{ top: 10, right: 30, left: 10, bottom: 30 }}>
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5E7EB" />
+            <XAxis
+              dataKey="date"
               tick={{ fontSize: 11, fill: '#6B7280' }}
               tickLine={false}
               axisLine={{ stroke: '#E5E7EB' }}
@@ -72,31 +68,30 @@ const Chart = () => {
               textAnchor="end"
               height={60}
             />
-            <YAxis 
+            <YAxis
               tick={{ fontSize: 11, fill: '#6B7280' }}
               tickLine={false}
               axisLine={false}
-              tickFormatter={(value : any) => `$${(value/1000).toFixed(0)}k`}
+              tickFormatter={(value: any) => `$${(value / 1000).toFixed(0)}k`}
               domain={[20000, 60000]}
               ticks={[20000, 30000, 40000, 50000, 60000]}
             />
-            <Tooltip 
-              formatter={(value : any) => [`$${value.toLocaleString()}`, 'Sales']}
-              contentStyle={{ 
+            <Tooltip
+              formatter={(value: any) => [`$${value.toLocaleString()}`, 'Sales']}
+              contentStyle={{
                 backgroundColor: 'white',
                 border: '1px solid #E5E7EB',
                 borderRadius: '4px',
-                padding: '8px'
+                padding: '8px',
               }}
             />
-            <Line 
-              type="monotone" 
-              dataKey="sales" 
+            <Line
+              type="monotone"
+              dataKey="sales"
               stroke="#4F46E5"
               strokeWidth={2}
               dot={{ fill: '#4F46E5', strokeWidth: 0, r: 4 }}
               activeDot={{ r: 6 }}
-              tension={0.4}
             />
           </LineChart>
         </ResponsiveContainer>

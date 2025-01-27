@@ -1,5 +1,5 @@
-import { BellOutlined, UserOutlined } from "@ant-design/icons";
-import { useState } from "react";
+import { BellOutlined, UserOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 
 const Header = () => {
   const [showDropdown, setShowDropdown] = useState(false);
@@ -11,7 +11,7 @@ const Header = () => {
         <h1 className=" font-semibold text-gray-800">Good Afternoon, Andrew!</h1>
         <small>Here Are A Few Things To Get You Started</small>
       </div>
-      
+
       {/* Right side - notification and profile */}
       <div className="flex items-center space-x-6">
         {/* Notification Bell */}
@@ -22,7 +22,7 @@ const Header = () => {
 
         {/* Profile Section */}
         <div className="relative">
-          <div 
+          <div
             className="flex items-center space-x-3 cursor-pointer"
             onClick={() => setShowDropdown(!showDropdown)}
           >
@@ -38,10 +38,18 @@ const Header = () => {
           {/* Simple Dropdown Menu */}
           {showDropdown && (
             <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
-              <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
-              <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
-              <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Help</a>
-              <a href="#" className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">Sign out</a>
+              <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                Profile
+              </a>
+              <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                Settings
+              </a>
+              <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                Help
+              </a>
+              <a href="#" className="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+                Sign out
+              </a>
             </div>
           )}
         </div>
