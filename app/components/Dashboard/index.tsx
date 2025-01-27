@@ -31,7 +31,7 @@
 //         onMouseLeave={() => setIsHovered(false)}
 //         className={`fixed left-0 h-screen text-black   bg-white
 //           z-[999999]
-//           transition-all duration-300 ease-in-out 
+//           transition-all duration-300 ease-in-out
 //           ${isHovered ? "w-52" : "w-16"}`}
 //       >
 //         {/* Logo */}
@@ -53,8 +53,8 @@
 //             >
 //               <div
 //                 className={`
-//                 flex-shrink-0 
-//                 transition-transform duration-300 
+//                 flex-shrink-0
+//                 transition-transform duration-300
 //                 group-hover:scale-110
 //               `}
 //               >
@@ -95,31 +95,28 @@
 
 // export default SideNav;
 
-
-
-
 import {
   CalendarOutlined,
+  CaretDownOutlined,
+  CaretUpOutlined,
   HomeOutlined,
   MailOutlined,
   TeamOutlined,
   UserOutlined,
   UserSwitchOutlined,
-  CaretDownOutlined,
-  CaretUpOutlined,
 } from "@ant-design/icons";
 import { useState } from "react";
 import Calendar from "../Calander";
-import NavigationMenu from "../NavigationMenu";
 import Chart from "../Chart";
 import Header from "../Header";
+import NavigationMenu from "../NavigationMenu";
 
 const SideNav = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState(new Set(["listings"]));
 
-  const toggleMenu = (menuKey : string) => {
-    setExpandedMenus(prev => {
+  const toggleMenu = (menuKey: string) => {
+    setExpandedMenus((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(menuKey)) {
         newSet.delete(menuKey);
@@ -134,7 +131,7 @@ const SideNav = () => {
     {
       key: "home",
       icon: <HomeOutlined className="text-xl" />,
-      label: "Home"
+      label: "Home",
     },
     {
       key: "listings",
@@ -143,35 +140,35 @@ const SideNav = () => {
       submenu: [
         { label: "Stays", key: "stays" },
         { label: "Guests", key: "guests" },
-        { label: "Properties", key: "properties" }
-      ]
+        { label: "Properties", key: "properties" },
+      ],
     },
     {
       key: "operations",
       icon: <UserOutlined className="text-xl" />,
-      label: "Operations"
+      label: "Operations",
     },
     {
       key: "backoffice",
       icon: <MailOutlined className="text-xl" />,
-      label: "Back Office"
+      label: "Back Office",
     },
     {
       key: "admin",
       icon: <TeamOutlined className="text-xl" />,
-      label: "Admin"
+      label: "Admin",
     },
     {
       key: "superadmin",
       icon: <UserSwitchOutlined className="text-xl" />,
-      label: "Super Admin"
-    }
+      label: "Super Admin",
+    },
   ];
 
   return (
     <div className="min-h-screen flex">
       {/* Sidebar */}
-      <div 
+      <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className={`
@@ -181,10 +178,12 @@ const SideNav = () => {
         `}
       >
         {/* Logo */}
-        <div className={`
+        <div
+          className={`
           h-16 flex items-center
           ${isHovered ? "justify-center" : " justify-center opacity-0 "}
-        `}>
+        `}
+        >
           <span className="text-3xl font-bold text-rose-500">CH</span>
         </div>
 
@@ -195,22 +194,26 @@ const SideNav = () => {
               <div
                 onClick={() => item.submenu && toggleMenu(item.key)}
                 className={`
-                  flex items-center cursor-pointer mt-2
-                  hover:bg-gray-50 transition-colors duration-200
-                  ${isHovered ? "px-6" : "justify-center"}
-                  py-3
-                  ${expandedMenus.has(item.key) ? 'text-rose-500' : 'text-gray-700'}
-                `}
+    flex items-center cursor-pointer
+    hover:bg-gray-50 transition-colors duration-200
+    ${isHovered ? "px-6" : "justify-center"}
+    py-4
+    ${expandedMenus.has(item.key) ? "text-rose-500" : "text-gray-700"}
+  `}
               >
-                <span className={`${isHovered ? "w-6" : "text-xl"}`}>{item.icon}</span>
-                <span className={`
-                  whitespace-nowrap transition-all duration-300
-                  ${isHovered ? "ml-4  opacity-100" : "w-0 opacity-0"}
-                `}>
+                <span className={`text-xl ${isHovered ? "w-6" : ""}`}>
+                  {item.icon}
+                </span>
+                <span
+                  className={`
+    whitespace-nowrap transition-all duration-300
+    ${isHovered ? "ml-4 opacity-100" : "w-0 opacity-0"}
+  `}
+                >
                   {item.label}
                 </span>
                 {item.submenu && isHovered && (
-                  <span className="ml-auto mt-10">
+                  <span className="ml-auto">
                     {expandedMenus.has(item.key) ? (
                       <CaretUpOutlined className="text-xs" />
                     ) : (
@@ -219,36 +222,18 @@ const SideNav = () => {
                   </span>
                 )}
               </div>
-
-              {/* Submenu - only show when sidebar is expanded */}
-              {item.submenu && expandedMenus.has(item.key) && isHovered && (
-                <div className="bg-white">
-                  {item.submenu.map((subItem) => (
-                    <div
-                      key={subItem.key}
-                      className="pl-16 py-2 cursor-pointer text-gray-600 hover:text-rose-500 transition-colors duration-200"
-                    >
-                      {subItem.label}
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
           ))}
         </nav>
       </div>
-
-      {/* Main Content */}
-      
-      <div className={`
+      <div
+        className={`
         flex-1 pl-16 bg-gray-100
         transition-all duration-300 ease-in-out
-      `}>
-        <Header/>
-        <div className="p-8">
-          {/* <h1 className="text-2xl font-bold text-gray-800">
-            Welcome to Dashboard
-          </h1> */}
+      `}
+      >
+        <Header />
+        <div className="">
           <NavigationMenu />
           <Calendar />
           <Chart />
