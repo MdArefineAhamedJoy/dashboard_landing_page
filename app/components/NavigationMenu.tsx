@@ -44,8 +44,8 @@ const NavigationMenu = () => {
   ];
 
   return (
-    <div className="w-full p-2 sm:p-4">
-      <div className="max-w-[1400px] mx-auto">
+    <div className="w-full  sm:p-4">
+      <div className=" mx-auto">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4">
           {menuItems.map((item, index) => (
             <Card

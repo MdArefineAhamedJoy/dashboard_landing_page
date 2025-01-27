@@ -70,7 +70,6 @@ const SideNav = () => {
 
   return (
     <div className="min-h-screen flex">
-      {/* Sidebar */}
       <div
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
@@ -80,7 +79,6 @@ const SideNav = () => {
           ${isHovered ? "w-64" : "w-16"}
         `}
       >
-        {/* Logo */}
         <div
           className={`
           h-16 flex items-center
@@ -89,8 +87,6 @@ const SideNav = () => {
         >
           <span className="text-3xl font-bold text-rose-500">CH</span>
         </div>
-
-        {/* Nav Items */}
         <nav className="mt-3">
           {menuItems.map((item) => (
             <div key={item.key}>
@@ -143,8 +139,8 @@ const SideNav = () => {
       </div>
       <div
         className={`
-        flex-1 pl-16 bg-gray-100
-        transition-all duration-300 ease-in-out
+        flex-1  
+        transition-all duration-300 ml-16 border border-red-500
       `}
       >
         <Header />

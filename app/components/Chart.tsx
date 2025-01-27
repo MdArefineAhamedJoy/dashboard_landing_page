@@ -38,7 +38,7 @@ const MetricCard = ({ title, value }: { title: string; value: string }) => (
 
 const Chart = () => {
   return (
-    <div className="p-6 w-full mx-auto bg-white">
+    <div className="p-4 w-full mx-auto bg-white">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
         <MetricCard title="Earnings" value="257" />
         <MetricCard title="Costs" value="257" />
